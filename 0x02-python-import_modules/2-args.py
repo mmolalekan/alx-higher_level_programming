@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import sys
 if __name__ == "__main__":
-    argc = len(sys.argv) - 1
-    print("{} {}".format(argc,"argument" if argc == 1 else "arguments"),end="")
-    print("{}".format("." if argc == 0 else ":"))
-    for i in range(1, argc + 1):
+    ac = len(sys.argv) - 1
+    print("{} {}".format(ac, "argument" if ac == 1 else "arguments"), end="")
+    print("{}".format("." if ac == 0 else ":"))
+    for i in range(1, ac + 1):
         print("{}: {}".format(i, sys.argv[i]))

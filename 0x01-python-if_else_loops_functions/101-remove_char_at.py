@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-def remove_char_at(str, n):
-    new_string = str[:n] + str[n + 1:]
+def remove_char_at(s, n):
+    new_string = s[:n] + s[n + 1:]
     return new_string

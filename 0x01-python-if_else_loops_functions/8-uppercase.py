@@ -1,5 +1,6 @@
-def uppercase(str):
-    for i in str:
+#!/usr/bin.python3
+def uppercase(s):
+    for i in s:
         print(
             "{}".format(
                 chr(ord(i) - 32)

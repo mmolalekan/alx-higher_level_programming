@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    counter_i = len(matrix)
-    counter_j = len(matrix[0])
-    if isinstance(matrix, list):
-        for i in range(counter_i):
-            for j in range(counter_j - 1):
-                print("{:d} ".format(matrix[i][j]), end="")
-            if counter_j > 0:
-                print("{:d}".format(matrix[i][counter_j - 1]))
+    for row in matrix:
+        for i in range(len(row)):
+            if i < len(row):
+                print("{} ".format(row[i]), end='')
             else:
-                print()
+                print("{}".format(row[i]))
+        print()

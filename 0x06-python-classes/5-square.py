@@ -1,21 +1,15 @@
 #!/usr/bin/python3
-"""Define a class Square."""
+"""Write a class Square that defines a square by: (based on 3-square.py)"""
 
 
 class Square:
-    """Represent a square."""
-
-    def __init__(self, size):
-        """Initialize a new square.
-        Args:
-            size (int): The size of the new square.
-        """
-        self.size = size
+    """Square class based on 3-square.py"""
+    def __init__(self, size=0):
+        self.__size = size
 
     @property
     def size(self):
-        """Get/set the current size of the square."""
-        return (self.__size)
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -23,16 +17,17 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        elif isinstance(value, int):
+            self.__size = value
 
     def area(self):
-        """Return the current area of the square."""
-        return (self.__size * self.__size)
+        """returns the current square area"""
+        return self.__size ** 2
 
     def my_print(self):
-        """Print the square with the # character."""
-        for i in range(0, self.__size):
-            [print("#", end="") for j in range(self.__size)]
-            print("")
         if self.__size == 0:
-            print("")
+            print()
+        for i in range(self.__size):
+            for j in range(self.__size):
+                print("{}".format("#"), end='')
+            print()

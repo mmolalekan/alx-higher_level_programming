@@ -1,0 +1,21 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 1)
+2
+>>> add_integer(-2, -2)
+-4
+>>> add_integer(1, -2)
+-1
+>>> add_integer(-1, 2)
+1
+>>> add_integer(20.4, 20.4)
+40
+>>> add_integer(20.4, 20)
+40
+>>> add_integer(20, 20.4)
+40
+>>> add_integer('a', 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(5, 'b')
+Traceback (most recent call last):
+TypeError: b must be an integer

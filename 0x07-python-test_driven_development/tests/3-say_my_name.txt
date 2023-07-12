@@ -1,67 +1,56 @@
-===========================
-How to Use 3-say_my_name.py
-===========================
+==========================
+Usage of 3-say_my_name.txt
+==========================
 
-This modules defines a function ``say_my_name(first_name, last_name="")``.
+This module defines a function that takes two arguments: first and last name.
+It turns the two into a string.
 
-Usage
+usage
 =====
+My name is <first name> <last name>
 
-``say_my_name(...)`` prints "My name is <first_name> <last_name>".
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
-::
+# Test case 1: First name and last name provided
+>>> say_my_name("John", "Doe")
+My name is John Doe
 
-    >>> say_my_name = __import__('3-say_my_name').say_my_name
-    >>> say_my_name("Beta", "Scribbles")
-    My name is Beta Scribbles
+# Test case 2: First name provided, last name empty
+>>> say_my_name("John")
+My name is John 
 
-::
+# Test case 3: First name provided as an integer
+>>> say_my_name(123)
+Traceback (most recent call last):
+TypeError: first_name must be a string
 
-    >>> say_my_name("Tom Jerry", "Avril")
-    My name is Tom Jerry Avril
+# Test case 4: Last name provided as an integer
+>>> say_my_name("John", 456)
+Traceback (most recent call last):
+TypeError: last_name must be a string
 
-The parameter ```last_name``` is optional. If no last name is provided,
-an empty string is printed instead.
+# Test case 5: Empty strings provided for both first name and last name
+>>> say_my_name("", "")
+My name is  
 
-::
+# Test case 6: First name provided as a float
+>>> say_my_name(3.14, "Doe")
+Traceback (most recent call last):
+TypeError: first_name must be a string
 
-    >>> say_my_name("Beta")
-    My name is Beta 
+# Test case 7: Last name provided as None
+>>> say_my_name("John", None)
+Traceback (most recent call last):
+TypeError: last_name must be a string
 
-Invalid Names
-=============
+# Test case 8: First name and last name provided as special characters
+>>> say_my_name("$#@!", "@#$%")
+My name is $#@! @#$%
 
-The parameters ``first_name`` and ``last_name``` must be strings. Otherwise,
-a TypeError is raised.
+# Test case 9: First name and last name provided with leading/trailing spaces
+>>> say_my_name("   John   ", "   Doe   ")
+My name is    John       Doe   
 
-::
-
-    >>> say_my_name(6, "James")
-    Traceback (most recent call last):
-    TypeError: first_name must be a string
-
-::
-
-    >>> say_my_name("LeBron", ["Cavs", "Lakers", "Heat"])
-    Traceback (most recent call last):
-    TypeError: last_name must be a string
-
-::
-
-    >>> say_my_name({"LeBron": 6, "James": 23}, 7.7)
-    Traceback (most recent call last):
-    TypeError: first_name must be a string
-
-::
-
-    >>> say_my_name(None)
-    Traceback (most recent call last):
-    TypeError: first_name must be a string
-
-At least one name must be provided.
-
-::
-
-    >>> say_my_name()
-    Traceback (most recent call last):
-    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+# Test case 10: First name and last name provided with Unicode characters
+>>> say_my_name("José", "García")
+My name is José García

@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-''' Module: 1-my_list
-'''
+""" inherits from list"""
 
 
 class MyList(list):
-    ''' Represents a MyList
-    '''
+    """ inherits from list"""
 
     def print_sorted(self):
-        '''
-        prints the list, but sorted
-        '''
-        print(sorted(self))
+        """prints the list, but sorted (ascending sort)"""
+        print("{}".format(sorted(self)))

@@ -1,16 +1,15 @@
 #!/usr/bin/node
-const S = require('./5-square');
-class Square extends S {
-  charPrint (c) {
-    if (typeof (c) === 'undefined') {
-      c = 'X';
-    }
-    for (let i = 0; i < this.height; i++) {
-      let myRow = '';
-      for (let j = 0; j < this.width; j++) {
-        myRow += c;
+const Square1 = require('./5-square');
+
+class Square extends Square1 {
+// super class constructor takes charge here.
+  charPrint (C) {
+    if (C === 'C') {
+      for (let i = 0; i < this.height; i++) {
+        console.log('C'.repeat(this.height));
       }
-      console.log(myRow);
+    } else {
+      this.print();
     }
   }
 }

@@ -1,50 +1,50 @@
 #!/usr/bin/python3
-"""defines a square class"""
-from models.rectangle import Rectangle
+"""module documentation"""
+import importlib
+Rectangle = importlib.import_module('models.rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """defines the square class"""
+    """calss documentation"""
     def __init__(self, size, x=0, y=0, id=None):
-        """instantiation"""
+        """function documentation"""
+        self.size = size
+        self.x = x
+        self.y = y
+        self.id = id
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        return "[Square] ({}) {}/{} - {}"\
-            .format(self.id, self.x, self.y, self.width, self.height)
 
     @property
     def size(self):
-        """module Square size getter"""
+        """"function documentation"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """module Square size setter"""
+        """function documentation"""
         self.width = value
         self.height = value
 
+    def __str__(self):
+        """function documentation"""
+        return '[Square] ({}) {}/{} - {}'\
+            .format(self.id, self.x, self.y, self.size)
+
     def update(self, *args, **kwargs):
-        """assigns attributes"""
+        """function documentation"""
         if len(args) > 0:
-            try:
-                self.id = args[0]
-                self.width = args[1]
-                self.x = args[2]
-                self.y = args[3]
-            except IndexError:
-                pass
+            attrs = ['id', 'size', 'x', 'y']
+            for arg, attr in zip(args, attrs):
+                setattr(self, attr, arg)
         else:
-            for key, value in kwargs.items():
-                if hasattr(self, key):
-                    setattr(self, key, value)
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def to_dictionary(self):
-        """returns the dictionary representation of a Rectangle"""
+        """function documentation"""
         return {
             'id': self.id,
-            'x': self.x,
-            'y': self.y,
             'size': self.size,
-            'width': self.width
+            'x': self.x,
+            'y': self.y
         }

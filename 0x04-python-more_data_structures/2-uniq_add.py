@@ -5,3 +5,9 @@ def uniq_add(my_list=[]):
     for value in a:
         sum += value
     return sum
+
+"""
+from functools import reduce
+def uniq_add(my_list=[]):
+    return reduce(lambda x,y: x + y, set(my_list), 0)
+"""
